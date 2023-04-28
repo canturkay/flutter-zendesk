@@ -42,7 +42,7 @@
                                         or:NSLocalizedString(@"Back", "")];
     NSString *messagingName = [self null:input.messagingName or:@"Chat Bot"];
     
-    ZDKMessagingConfiguration *messagingConfiguration = [[ZDKMessagingConfiguration alloc] init];
+    ZDKClassicMessagingConfiguration *messagingConfiguration = [[ZDKClassicMessagingConfiguration alloc] init];
     messagingConfiguration.name = messagingName;
     
     ZDKChatConfiguration *chatConfiguration = [[ZDKChatConfiguration alloc] init];
@@ -61,7 +61,7 @@
     NSArray *engines = @[
         (id <ZDKEngine>) [ZDKChatEngine engineAndReturnError:&localError]
     ];
-    UIViewController *viewController = [ZDKMessaging.instance buildUIWithEngines:engines
+    UIViewController *viewController = [ZDKClassicMessaging.instance buildUIWithEngines:engines
                                                                          configs:@[messagingConfiguration, chatConfiguration]
                                                                            error:&localError];
     
